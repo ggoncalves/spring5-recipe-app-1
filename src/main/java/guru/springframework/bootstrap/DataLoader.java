@@ -74,23 +74,20 @@ public class DataLoader implements CommandLineRunner {
     ancho.setAmount(new BigDecimal("2"));
     ancho.setUom(tablespoon.get());
     ancho.setDescription("ancho chili powder");
-    ancho.setRecipe(recipe1);
 
-    recipe1.getIngredients().add(ancho);
+    recipe1.addIngredient(ancho);
 
     Optional<UnitOfMeasure> teaspoon = unitOfMeasureRepository.findByDescription("Teaspoon");
     Ingredient sugar = new Ingredient();
     sugar.setDescription("sugar");
     sugar.setAmount(BigDecimal.ONE);
     sugar.setUom(teaspoon.get());
-    sugar.setRecipe(recipe1);
 
-    recipe1.getIngredients().add(sugar);
+    recipe1.addIngredient(sugar);
 
     // notes;
     Notes notes = new Notes();
     notes.setRecipeNotes("This is the Notes");
-    notes.setRecipe(recipe1);
     recipe1.setNotes(notes);
 
     // categories;
