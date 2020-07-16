@@ -4,6 +4,7 @@ import guru.springframework.domain.*;
 import guru.springframework.repositories.CategoryRepository;
 import guru.springframework.repositories.RecipeRepository;
 import guru.springframework.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.Set;
 
+@Slf4j
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -103,10 +105,9 @@ public class DataLoader implements CommandLineRunner {
 
     Recipe savedRecipe = recipeRepository.save(recipe1);
 
-
-    System.out.println("Saved with id: " + savedRecipe.getId());
-    System.out.println("Note with id: " + savedRecipe.getNotes().getId());
-    System.out.println("Note with recipe id: " + savedRecipe.getNotes().getRecipe().getId());
+    log.info("Saved with id: " + savedRecipe.getId());
+    log.info("Note with id: " + savedRecipe.getNotes().getId());
+    log.info("Note with recipe id: " + savedRecipe.getNotes().getRecipe().getId());
 
   }
 }
